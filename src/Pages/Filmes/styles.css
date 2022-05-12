@@ -1,0 +1,61 @@
+.container-filmes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.corpo-filmes{
+    height: 600px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    /*background-color: aliceblue;*/
+    padding-top: 25px;
+}
+
+.h2-filmes{
+    margin-bottom: 10px;
+}
+
+.img-detalhes {
+    /*transform: scale(.85);*/
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.h4-detalhes{
+    margin-bottom: 15px;
+}
+
+.p-detalhes{
+    margin-bottom: 15px;
+}
+
+.botao-detalhes-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.botao-detalhes{
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: rgb(32, 32, 32);
+    background-color: #ced1d3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.5s;
+    text-decoration: none;
+  }
+  
+  .botao-detalhes:hover{
+    background-color:#6197e8;
+    color: rgb(45, 45, 45);
+  }
