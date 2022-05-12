@@ -4,42 +4,51 @@
     align-items: center;
 }
 
-.corpo-home{
-    height: 600px;
-    width: 55%;
+.loading {
     display: flex;
-    flex-direction: column;
-    /*background-color: aliceblue;*/
-    padding-top: 25px;
-}
-
-.titulo-home{
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.img-home {
-    /*transform: scale(.85);*/
-    border-radius: 8px 8px 0px 0px;
-}
-
-.botao{
-    height: 40px;
-    background: none;
-    border-radius: 0px 0px 5px 5px;
-    color: #fff;
-    border: 2px solid #4c89e3;
-    background-color: #4c89e3;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    transition: all 0.5s;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.lista-filmes-home{
+    max-width: 800px;
+    margin: 14px auto;
+}
+
+.lista-filmes-home article{
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.lista-filmes-home strong {
+    margin-bottom: 14px;
+    text-align: center;
+    font-size: 22px;
+    display: block;
+}
+
+.lista-filmes-home img{
+    width: 900px;
+    max-width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.lista-filmes-home a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 24px;
+    background-color: #116FEB;
     text-decoration: none;
-  }
-  
-  .botao:hover{
-    background-color:#6197e8;
-    color: rgb(45, 45, 45);
-  }
+    color: #FFF;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
