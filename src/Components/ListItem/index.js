@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 
 
-function ListPage(Props) {
+function ListItem(Props) {
     
     // Forma temporária de preencher a lista
     const lista = {
@@ -20,4 +20,4 @@ function ListPage(Props) {
     );
 }
 
-export default ListPage;
+export default ListItem;

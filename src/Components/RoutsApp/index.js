@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Favoritos from '../../Pages/Favoritos';
 import NoPage from '../../Pages/NoPage';
-import Home from '../Home';
+import Home from '../../Pages/Home';
 
 
 function RoutsApp(){
