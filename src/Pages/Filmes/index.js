@@ -1,32 +1,66 @@
-import React from 'react';
-import { } from 'react-router-dom';
+import { useEffect, useState} from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import api from '../../services/api';
 import './styles.css';
 
-function Filmes(props) {
+function Filmes() {
 
-    // Forma temporária de preencher a lista
-    const detalhes = {
-        id: 1,
-        titulo: 'Eternos',
-        cartazUrl: 'https://br.web.img3.acsta.net/r_654_368/newsv7/21/03/25/22/16/2662420.jpg',
-        textoSinopse: 'Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.',
-        nota: 7.2,
-        trailer: 'https://youtu.be/PJza3ZaFeAU'
-    };
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    const [filme, setFilme] = useState({});
+    const [loading, setLoading] = useState(true);
+
+    useEffect(()=>{
+        async function loadFilm(){
+            await api.get(`/movie/${id}`,{
+                params:{
+                    api_key: "77fdd7b7cf51e014c301e980d064c93b",
+                    language: "pt-BR"
+                }
+            })
+            .then((response)=>{
+                setFilme(response.data);
+                setLoading(false);
+            })
+            .catch(()=>{
+                console.log("FILME NÃO ENCONTRADO");
+                navigate("/", { replace: true});
+                return;
+            })
+        }
+
+        loadFilm();
+
+        return () => {
+            console.log("COMPONENTE FOI DESMONTADO")
+        }
+    },[navigate, id]);
+
+    if(loading){
+        return(
+            <div className="filme-info-detalhes">
+                <h1>Carregando detalhes...</h1>
+            </div>
+        );
+    }
 
     return (
-        <div className='container-filmes'>
-            <section className='corpo-filmes'>
-                <h2 className='h2-filmes'>{detalhes.titulo}</h2>
-                <img className='img-detalhes' src={detalhes.cartazUrl} alt={detalhes.titulo} />
-                <h4 className='h4-detalhes' >Sinopse</h4>
-                <p className='p-detalhes'>{detalhes.textoSinopse}</p>
-                <h4>Avaliação: {detalhes.nota}/10</h4>
-                <div className='botao-detalhes-container'>
-                    <a href="http://goole.com" className='botao-detalhes'>Salvar</a>
-                    <a href="http://goole.com" className='botao-detalhes'>Trailer</a>
+        <div className='filme-info'>
+                <h1>{filme.title} </h1>
+                <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title} />
+                <h3>Sinopse</h3>
+                <span>{filme.overview}</span>
+                <strong>Avaliação: {filme.vote_average}/10</strong>
+
+                <div className='area-buttons'>
+                    <button>Salvar</button>
+                    <button>
+                        <a target="_blank" rel="external" href={`https://youtube.com/results?search_query=${filme.title}`}>
+                            Trailer
+                        </a>
+                    </button>
                 </div>
-            </section>
         </div>
     );
 }

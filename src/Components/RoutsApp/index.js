@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Favoritos from '../../Pages/Favoritos';
-import NoPage from '../../Pages/NoPage';
 import Home from '../../Pages/Home';
 import Filmes from '../../Pages/Filmes';
+import Erro from '../../Pages/Erro';
 
 
 function RoutsApp(){
@@ -14,7 +14,8 @@ function RoutsApp(){
                 <Route index element={ <Home />}/>
                 <Route path='favoritos' element={ <Favoritos />}/>
                 <Route path='filmes/:id' element={ <Filmes />}/>
-                <Route path='*' element={ <NoPage />}/>
+
+                <Route path='*' element={ <Erro />}/>
             </Routes>
         </BrowserRouter>
     );
