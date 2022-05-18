@@ -1,5 +1,6 @@
 import { useEffect, useState} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import api from '../../services/api';
 import './styles.css';
 
@@ -37,6 +38,24 @@ function Filmes() {
         }
     },[navigate, id]);
 
+    function salvarFilme(){
+        const minhaLista = localStorage.getItem("@primeflix");
+
+        let filmesSalvos = JSON.parse(minhaLista) || [];
+
+        let hasFilme = filmesSalvos.some((filmesSalvo) => filmesSalvo.id === filme.id);
+
+        if(hasFilme){
+            toast.warn("ESSE FILME JÁ ESTÁ NA LISTA");
+            return;
+        }
+
+        filmesSalvos.push(filme);
+        localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos));
+        toast.success("FILME SALVO COM SUCESSO");
+
+    }
+
     if(loading){
         return(
             <div className="filme-info-detalhes">
@@ -54,9 +73,9 @@ function Filmes() {
                 <strong>Avaliação: {filme.vote_average}/10</strong>
 
                 <div className='area-buttons'>
-                    <button>Salvar</button>
+                    <button onClick={salvarFilme}>Salvar</button>
                     <button>
-                        <a target="_blank" rel="external" href={`https://youtube.com/results?search_query=${filme.title}`}>
+                        <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${filme.title}`}>
                             Trailer
                         </a>
                     </button>

@@ -4,11 +4,12 @@ import Favoritos from '../../Pages/Favoritos';
 import Home from '../../Pages/Home';
 import Filmes from '../../Pages/Filmes';
 import Erro from '../../Pages/Erro';
-
+import Header from '../Header';
 
 function RoutsApp(){
     return (
         <BrowserRouter>
+            <Header />
             <Routes>
                 <Route path='/' element={ <Home />}/>
                 <Route index element={ <Home />}/>

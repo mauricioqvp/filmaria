@@ -1,11 +1,12 @@
-import './App.css';
-import Header from './Components/Header';
+import { ToastContainer } from 'react-toastify';
 import RoutsApp from './Components/RoutsApp';
+import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div>
-      <Header />
+      <ToastContainer autoClose={3000} />
       <RoutsApp />
     </div>
   );
