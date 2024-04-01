@@ -26,7 +26,7 @@ function Filmes() {
             })
             .catch(()=>{
                 console.log("FILME NÃO ENCONTRADO");
-                navigate("/", { replace: true});
+                navigate("/", {replace: true});
                 return;
             })
         }
@@ -35,6 +35,7 @@ function Filmes() {
 
         return () => {
             console.log("COMPONENTE FOI DESMONTADO")
+            console.log(filme.overview);
         }
     },[navigate, id]);
 

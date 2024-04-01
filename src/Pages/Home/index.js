@@ -30,8 +30,10 @@ function Home(){
 
     if (loading){
         return(
-            <div className='loading'>Carregando...</div>
-        );
+            <div className='loading'>
+                Carregando...
+            </div>
+        )
     }
 
     return (
@@ -41,7 +43,7 @@ function Home(){
                 return(
                     <article key={filme.id}>
                         <strong>{filme.title}</strong>
-                        <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filmes.title}/>
+                        <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}/>
                         <Link to={`/filmes/${filme.id}`} >Acessar</Link>
                     </article>
                 );
